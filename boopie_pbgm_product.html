@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boopie | Gentle Blood Glucose Monitor for Cats</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons for elegant, lightweight iconography -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        accent: {
+                            500: '#f59e0b', // A warm amber for highlights/CTAs
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles to complement Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1f2937;
+        }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Hide scrollbar for clean horizontal scroll areas if needed */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="ph-fill ph-paw-print text-brand-600 text-3xl mr-2"></i>
+                    <span class="font-bold text-2xl tracking-tight text-gray-900">Boopie</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#story" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Our Story</a>
+                    <a href="#features" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Features</a>
+                    <a href="#how-to-use" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">How to Use</a>
+                    <a href="#faq" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">FAQ</a>
+                    <button class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2 rounded-full font-semibold transition-colors shadow-md hover:shadow-lg">
+                        Shop Now
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-600 focus:outline-none">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#story" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">Our Story</a>
+                <a href="#features" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">Features</a>
+                <a href="#how-to-use" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">How to Use</a>
+                <a href="#faq" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50">FAQ</a>
+                <div class="mt-4 px-3">
+                    <button class="w-full bg-brand-600 text-white px-6 py-3 rounded-full font-semibold shadow-md">
+                        Shop Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-6 text-center lg:text-left mb-12 lg:mb-0">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-100 text-brand-800 font-medium text-sm mb-6">
+                        <i class="ph-fill ph-star mr-2 text-accent-500"></i>
+                        Trusted by Veterinarians
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6 tracking-tight">
+                        Taking the Stress Out of <span class="text-brand-600">Feline Diabetes</span> Care.
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Boopie is the gentle, accurate, and smart blood glucose monitor designed exclusively for your cat's comfort and your peace of mind.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            Shop Boopie Now
+                        </button>
+                        <a href="#story" class="inline-flex justify-center items-center px-8 py-4 border-2 border-gray-300 hover:border-brand-600 text-gray-700 hover:text-brand-600 rounded-full font-bold text-lg transition-all bg-white">
+                            Discover the Difference
+                        </a>
+                    </div>
+                    
+                    <!-- Social Proof snippet -->
+                    <div class="mt-10 pt-6 border-t border-brand-200/50 flex items-center justify-center lg:justify-start text-sm text-gray-500">
+                        <div class="flex -space-x-2 mr-4">
+                            <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="User">
+                            <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="User">
+                            <img class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="User">
+                        </div>
+                        <p>Joined by <span class="font-bold text-gray-900">10,000+</span> happy cat parents.</p>
+                    </div>
+                </div>
+                
+                <!-- Hero Image Area -->
+                <div class="lg:col-span-6 relative">
+                    <!-- Decorative background blob -->
+                    <div class="absolute inset-0 bg-brand-200 rounded-full blur-3xl opacity-50 transform translate-x-10 -translate-y-10"></div>
+                    
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Peaceful cat resting, representing stress-free testing" class="w-full h-auto object-cover aspect-[4/3]">
+                        
+                        <!-- Floating UI Element Mockup -->
+                        <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg flex items-center justify-between border border-gray-100">
+                            <div class="flex items-center">
+                                <div class="bg-green-100 p-2 rounded-lg mr-4">
+                                    <i class="ph-fill ph-drop text-brand-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-medium uppercase tracking-wider">Latest Reading</p>
+                                    <p class="text-lg font-bold text-gray-900">110 <span class="text-sm font-normal text-gray-500">mg/dL</span></p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs text-brand-600 font-medium flex items-center"><i class="ph ph-check-circle mr-1"></i> In Target</p>
+                                <p class="text-xs text-gray-400 mt-1">Today, 8:00 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="story" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">Our Story</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900">Born from Love, Built for Comfort.</h3>
+            </div>
+            
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-10 lg:mb-0 relative rounded-2xl overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Owner affectionately petting their cat" class="w-full h-full object-cover aspect-square">
+                </div>
+                
+                <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
+                    <p>
+                        The idea for Boopie didn't come from a boardroom; it came from a living room, much like yours. When our founder's beloved rescue cat, Barnaby, was diagnosed with diabetes, the daily blood sugar checks became a source of dread for both of them.
+                    </p>
+                    <p>
+                        Traditional monitors were clunky, the lancets were intimidating, and the stress was taking a toll on their bond. We searched for a better way—a device that understood the sensitive nature of cats and the anxiety of their owners. When we couldn't find it, we decided to create it.
+                    </p>
+                    <div class="p-6 bg-brand-50 rounded-xl border border-brand-100">
+                        <p class="font-medium text-gray-900 italic">
+                            "Our mission is simple: to empower you to manage your cat's health with confidence, compassion, and ease. We believe that caring for a diabetic cat should strengthen your bond, not strain it."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">The Boopie Advantage</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Smart Care for Your Purrfect Companion.</h3>
+                <p class="text-xl text-gray-600">Managing your cat's diabetes shouldn't be a daily battle. Boopie replaces anxiety with assurance.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 feature-card relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-brand-50 rounded-full opacity-50 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="ph ph-speaker-slash text-3xl text-brand-600"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Whisper-Quiet & Nearly Painless</h4>
+                        <div class="space-y-3">
+                            <p class="text-gray-500 text-sm"><span class="font-semibold text-gray-700">The Problem:</span> Loud clicks and deep pricks startle cats, making testing a struggle.</p>
+                            <div class="h-px bg-gray-100 w-full"></div>
+                            <p class="text-gray-600"><span class="font-semibold text-brand-700">The Boopie Solution:</span> Our ultra-fine, precision-engineered lancets require only a microscopic blood drop. The delivery mechanism is whisper-quiet, minimizing stress and discomfort.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 feature-card relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-blue-50 rounded-full opacity-50 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="ph ph-lightning text-3xl text-blue-600"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Lightning-Fast, Lab-Grade Accuracy</h4>
+                        <div class="space-y-3">
+                            <p class="text-gray-500 text-sm"><span class="font-semibold text-gray-700">The Problem:</span> Waiting for results increases anxiety; inaccurate readings lead to incorrect dosing.</p>
+                            <div class="h-px bg-gray-100 w-full"></div>
+                            <p class="text-gray-600"><span class="font-semibold text-brand-700">The Boopie Solution:</span> Get highly accurate results in just 5 seconds. Our advanced enzyme technology ensures reliable readings you and your vet can trust, every single time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 feature-card relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-purple-50 rounded-full opacity-50 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="ph ph-device-mobile text-3xl text-purple-600"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Seamless Smart App Integration</h4>
+                        <div class="space-y-3">
+                            <p class="text-gray-500 text-sm"><span class="font-semibold text-gray-700">The Problem:</span> Keeping track of handwritten logs is tedious and prone to errors.</p>
+                            <div class="h-px bg-gray-100 w-full"></div>
+                            <p class="text-gray-600"><span class="font-semibold text-brand-700">The Boopie Solution:</span> Automatically syncs via Bluetooth to our intuitive app. Track trends, set reminders, and easily share comprehensive reports directly with your veterinarian.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 feature-card relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-orange-50 rounded-full opacity-50 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
+                            <i class="ph ph-hand-pointing text-3xl text-orange-600"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Ergonomically Designed for Felines</h4>
+                        <div class="space-y-3">
+                            <p class="text-gray-500 text-sm"><span class="font-semibold text-gray-700">The Problem:</span> Human monitors are awkward to use on small animal ears or paws.</p>
+                            <div class="h-px bg-gray-100 w-full"></div>
+                            <p class="text-gray-600"><span class="font-semibold text-brand-700">The Boopie Solution:</span> The Boopie meter is contoured to fit perfectly in your hand, allowing for steady, precise placement on your cat's ear vein or paw pad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use (Usage Guide) Section -->
+    <section id="how-to-use" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">Usage Guide</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">A Gentle Routine in 3 Simple Steps.</h3>
+                <p class="text-xl text-gray-600">Designed to be quick, painless, and rewarding for both of you.</p>
+            </div>
+
+            <!-- Steps Container -->
+            <div class="relative">
+                <!-- Connecting Line (Desktop only) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-100 -translate-y-1/2 z-0"></div>
+
+                <div class="grid md:grid-cols-3 gap-10 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm relative">
+                        <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 mx-auto md:mx-0 shadow-lg border-4 border-white absolute -top-6 left-1/2 md:left-6 -translate-x-1/2 md:translate-x-0">1</div>
+                        <div class="mt-6 text-center md:text-left">
+                            <div class="h-48 rounded-xl bg-gray-100 mb-6 overflow-hidden flex items-center justify-center">
+                                <!-- Placeholder for illustration/video loop -->
+                                <i class="ph-duotone ph-cat text-6xl text-gray-400"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">Prepare & Comfort</h4>
+                            <p class="text-gray-600 text-sm">Find a quiet spot. Gently pet your cat and warm their ear to encourage blood flow. Insert a fresh test strip to auto-turn on the meter.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm relative">
+                        <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 mx-auto md:mx-0 shadow-lg border-4 border-white absolute -top-6 left-1/2 md:left-6 -translate-x-1/2 md:translate-x-0">2</div>
+                        <div class="mt-6 text-center md:text-left">
+                            <div class="h-48 rounded-xl bg-gray-100 mb-6 overflow-hidden flex items-center justify-center">
+                                <!-- Placeholder for illustration/video loop -->
+                                <i class="ph-duotone ph-target text-6xl text-gray-400"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">The Gentle Prick</h4>
+                            <p class="text-gray-600 text-sm">Use the Boopie lancing device on the marginal ear vein. Our whisper-quiet mechanism ensures a nearly painless experience.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm relative">
+                        <div class="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold text-xl mb-6 mx-auto md:mx-0 shadow-lg border-4 border-white absolute -top-6 left-1/2 md:left-6 -translate-x-1/2 md:translate-x-0">3</div>
+                        <div class="mt-6 text-center md:text-left">
+                            <div class="h-48 rounded-xl bg-gray-100 mb-6 overflow-hidden flex items-center justify-center">
+                                <!-- Placeholder for illustration/video loop -->
+                                <i class="ph-duotone ph-bone text-6xl text-gray-400"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">Test & Reward</h4>
+                            <p class="text-gray-600 text-sm">Touch strip to the tiny blood drop. Results appear in 5s and sync to the app. Give your brave kitty a diabetes-friendly treat!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Best Practices -->
+            <div class="mt-16 bg-brand-50 rounded-2xl p-8 border border-brand-100">
+                <h4 class="text-lg font-bold text-brand-900 mb-4 flex items-center">
+                    <i class="ph-fill ph-lightbulb text-accent-500 text-2xl mr-2"></i> Best Practices for a Calm Cat
+                </h4>
+                <ul class="grid md:grid-cols-3 gap-4 text-brand-800 text-sm">
+                    <li class="flex items-start">
+                        <i class="ph-bold ph-check text-brand-600 mr-2 mt-0.5"></i>
+                        <span>Associate the testing area with positive experiences (treats, cuddles) even when not testing.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="ph-bold ph-check text-brand-600 mr-2 mt-0.5"></i>
+                        <span>Stay calm yourself; your cat is highly sensitive and can sense your anxiety.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="ph-bold ph-check text-brand-600 mr-2 mt-0.5"></i>
+                        <span>Consistency is key—try to establish a routine by testing at the same times each day.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">Support</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">We're Here to Help.</h3>
+                <p class="text-xl text-gray-600">Frequently asked questions from our community.</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- General Category -->
+                <div>
+                    <h4 class="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-4">General Questions</h4>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                            <h5 class="font-bold text-gray-900 text-lg mb-2 flex items-center cursor-pointer select-none">
+                                <i class="ph-bold ph-caret-right text-brand-600 mr-2 text-sm"></i>
+                                Can Boopie be used for dogs too?
+                            </h5>
+                            <p class="text-gray-600 pl-6">Yes! While Boopie was designed with the delicate nature of cats in mind, it is equally accurate and effective for monitoring dogs with diabetes.</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                            <h5 class="font-bold text-gray-900 text-lg mb-2 flex items-center cursor-pointer select-none">
+                                <i class="ph-bold ph-caret-right text-brand-600 mr-2 text-sm"></i>
+                                Does it require coding?
+                            </h5>
+                            <p class="text-gray-600 pl-6">No. Boopie features auto-coding technology, eliminating an extra step and reducing the chance of errors during stressful moments.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Usage & Accuracy Category -->
+                <div class="pt-6">
+                    <h4 class="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-4">Usage & Accuracy</h4>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                            <h5 class="font-bold text-gray-900 text-lg mb-2 flex items-center cursor-pointer select-none">
+                                <i class="ph-bold ph-caret-right text-brand-600 mr-2 text-sm"></i>
+                                How much blood is needed for a test?
+                            </h5>
+                            <p class="text-gray-600 pl-6">Boopie requires only a tiny 0.4µL (microliter) sample of blood. This microscopic amount makes the process much easier to achieve and less painful for your pet.</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                            <h5 class="font-bold text-gray-900 text-lg mb-2 flex items-center cursor-pointer select-none">
+                                <i class="ph-bold ph-caret-right text-brand-600 mr-2 text-sm"></i>
+                                Are the readings the same as what my vet gets?
+                            </h5>
+                            <p class="text-gray-600 pl-6">Boopie is calibrated specifically for the unique properties of feline and canine blood, providing highly accurate results comparable to laboratory testing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App & Connectivity Category -->
+                <div class="pt-6">
+                    <h4 class="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-4">App & Connectivity</h4>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                            <h5 class="font-bold text-gray-900 text-lg mb-2 flex items-center cursor-pointer select-none">
+                                <i class="ph-bold ph-caret-right text-brand-600 mr-2 text-sm"></i>
+                                Is the Boopie app free?
+                            </h5>
+                            <p class="text-gray-600 pl-6">Yes, the Boopie app is completely free to download and use for both iOS and Android devices.</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                            <h5 class="font-bold text-gray-900 text-lg mb-2 flex items-center cursor-pointer select-none">
+                                <i class="ph-bold ph-caret-right text-brand-600 mr-2 text-sm"></i>
+                                Can I share my cat's data with my vet?
+                            </h5>
+                            <p class="text-gray-600 pl-6">Absolutely. The app allows you to export your pet's blood glucose history as a clean, easy-to-read PDF or CSV file directly to your veterinarian's email with just a tap.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-Footer CTA -->
+    <section class="bg-brand-600 py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-white mb-6">Ready for stress-free testing?</h2>
+            <p class="text-brand-100 text-lg mb-8">Join thousands of cat parents who have transformed their daily routine with Boopie.</p>
+            <button class="bg-white text-brand-600 hover:bg-gray-50 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl">
+                Get Your Boopie Starter Kit
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+                <!-- Brand Info -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <i class="ph-fill ph-paw-print text-brand-500 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl text-white">Boopie</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">Designed exclusively for your cat's comfort and your peace of mind.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="ph-fill ph-instagram-logo text-2xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="ph-fill ph-facebook-logo text-2xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="ph-fill ph-twitter-logo text-2xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Explore</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#story" class="text-gray-400 hover:text-brand-400 transition-colors">Our Story</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-brand-400 transition-colors">Features</a></li>
+                        <li><a href="#how-to-use" class="text-gray-400 hover:text-brand-400 transition-colors">How to Use</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-brand-400 transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-brand-400 transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-brand-400 transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-brand-400 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-brand-400 transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-span-1 md:col-span-1">
+                    <h4 class="text-white font-semibold mb-4">Join Our Community</h4>
+                    <p class="text-gray-400 text-sm mb-4">Get tips on feline health and exclusive offers.</p>
+                    <form class="flex flex-col space-y-2">
+                        <input type="email" placeholder="Enter your email" class="bg-gray-800 border border-gray-700 text-white px-4 py-2 rounded-lg focus:outline-none focus:border-brand-500 text-sm">
+                        <button type="button" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg font-medium transition-colors text-sm">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-500">
+                &copy; <span id="year"></span> Boopie Pet Health. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar blur effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-sm');
+                nav.classList.replace('bg-white/90', 'bg-white/95'); // slightly less transparent on scroll
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.classList.replace('bg-white/95', 'bg-white/90');
+            }
+        });
+
+        // Simple accordion logic for FAQ visual feedback (optional enhancement)
+        const faqHeaders = document.querySelectorAll('#faq h5');
+        faqHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const icon = header.querySelector('i');
+                // Simple toggle animation for the icon
+                if (icon.classList.contains('ph-caret-right')) {
+                    icon.classList.replace('ph-caret-right', 'ph-caret-down');
+                } else {
+                    icon.classList.replace('ph-caret-down', 'ph-caret-right');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
